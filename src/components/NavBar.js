@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
+import { Nav } from 'react-bootstrap'
+
 
 class NavBar extends Component {
   render() {
     return (
       <div>
-        <h1>this is my Narbar</h1>
+    <Nav className="justify-content-center" activeKey="/home">
+        <Nav.Item>
+            <h1 style={{fontSize: '40px'}} href="/home">React Project</h1>
+        </Nav.Item>
+    </Nav>
       </div>
     )
   }

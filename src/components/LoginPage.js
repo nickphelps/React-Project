@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import NavBar from '../components/Navbar'
-import LoginForm from '../components/LoginForm';
+import NavBar from '../components/NavBar'
+import LoginForm from '../containers/LoginFormContainer';
 
 class LoginPage extends Component {
   render() {
@@ -8,7 +8,6 @@ class LoginPage extends Component {
       <div>
           <NavBar />
           <LoginForm />
-        <h1>This is LoginPage</h1>
       </div>
     )
   }
