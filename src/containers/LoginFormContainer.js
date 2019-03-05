@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Modal, Form, Button, Row, Col } from 'react-bootstrap'
+import { Modal, Form, Button, Row, Col, Alert } from 'react-bootstrap'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -10,26 +10,29 @@ class LoginForm extends Component {
           userInfo: [
               {
                   fname: '',
+                  fnameVerified: false,
                   lname: '',
+                  lnameVerified: false,
                   email: '',
-                  password: ''
+                  emailVerified: false,
+                  password: '',
+                  passwordVerifired: false,
+                  formError: ''
               }
-          ]
-      }
-    
+            ]
+      }//state
 
+      this.handleSubmit = this.handleSubmit.bind(this)
 }
     handleChangeFname (event) {
         this.setState({
-            fanme: event.target.value
-
+            fname: event.target.value
         })
     }
 
     handleChangeLName (event) {
         this.setState({
-            lanme: event.target.value
-
+            lname: event.target.value
         })
 
     }
@@ -37,22 +40,22 @@ class LoginForm extends Component {
     handleChangeEmail (event) {
         this.setState({
             email: event.target.value
-
         })
     }
 
     handleChangePassword (event) {
         this.setState({
             password: event.target.value
-
         })
-
     }
 
     handleSubmit (event) {
         //set actions
         event.preventDefault()
         this.props.handleSubmit(this.state)
+
+
+        //reset form
         document.getElementById('loginForm').reset()
     }
     
@@ -100,6 +103,19 @@ class LoginForm extends Component {
                     </Button>
                 </Form>
             </Modal.Body>
+            <Modal.Footer>
+                <Alert variant='danger'>{this.state.userInfo.map((item,index) => {
+                                                                        if (item.fname) {
+                                                                            return "Please Enter A First Name"
+                                                                        } else if (item.lname) {
+                                                                            return "Please Enter a Last Name"
+                                                                        } else if (item.email) {
+                                                                            return 'Please Enter a Email'
+                                                                        } else if (item.password) {
+                                                                            return 'Please Enter a Password'
+                                                                        }
+                })}</Alert> 
+            </Modal.Footer>
         </Modal.Dialog>
       </div>
     )
