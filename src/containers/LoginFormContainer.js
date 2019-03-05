@@ -16,37 +16,29 @@ class LoginForm extends Component {
               }
           ]
       }
-    
-
-}
+} 
     handleChangeFname (event) {
         this.setState({
             fanme: event.target.value
-
         })
     }
 
     handleChangeLName (event) {
         this.setState({
             lanme: event.target.value
-
         })
-
     }
 
     handleChangeEmail (event) {
         this.setState({
             email: event.target.value
-
         })
     }
 
     handleChangePassword (event) {
         this.setState({
             password: event.target.value
-
         })
-
     }
 
     handleSubmit (event) {
