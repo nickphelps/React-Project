@@ -104,7 +104,7 @@ class LoginForm extends Component {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Alert variant='danger'>{this.state.userInfo.map((item,index) => {
+                {/* <Alert variant='danger'>{this.state.userInfo.map((item,index) => {
                                                                         if (item.fname) {
                                                                             return "Please Enter A First Name"
                                                                         } else if (item.lname) {
@@ -114,7 +114,7 @@ class LoginForm extends Component {
                                                                         } else if (item.password) {
                                                                             return 'Please Enter a Password'
                                                                         }
-                })}</Alert> 
+                })}</Alert>  */}
             </Modal.Footer>
         </Modal.Dialog>
       </div>
