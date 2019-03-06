@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Form, Button, Row, Col } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import DashboardContainer from './DashboardContainer'
+// const routes = {
+//     path: 
+// }
 
 class LoginForm extends Component {
     constructor(props) {
@@ -44,6 +48,7 @@ class LoginForm extends Component {
 
     handleSubmit (event) {
         //set actions
+        console.log('enterd submit')
         event.preventDefault()
         this.props.handleSubmit(this.state)
         document.getElementById('loginForm').reset()
@@ -51,7 +56,8 @@ class LoginForm extends Component {
     
   render() {
     return (
-      <div>
+    <Router >
+        <div>
         <Modal.Dialog>
             <Modal.Header closeButton>
                 <Modal.Title>Login Form</Modal.Title>
@@ -88,13 +94,15 @@ class LoginForm extends Component {
                                       placeholder="Password"
                                       onChange={(event) => this.handleChangePassword(event)} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    {/* <Button variant="primary" type="submit">Submit */}
+                        <Link to='/DashboardContainer' state={this.props.userInfo} component={DashboardContainer} onSubmit={(event) => this.handleSubmit(event)}>SUBMIT</Link>
+                    {/* </Button> */}
                 </Form>
             </Modal.Body>
         </Modal.Dialog>
+      <Route path='/DashboardContainer' component={DashboardContainer} />
       </div>
+    </Router>
     )
   }
 }
