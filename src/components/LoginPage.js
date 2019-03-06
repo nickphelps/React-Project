@@ -3,18 +3,23 @@ import NavBar from '../components/NavBar'
 import LoginForm from '../containers/LoginFormContainer';
 import DashboardContainer from '../containers/DashboardContainer'
 
-class LoginPage extends Component {
-  // console.log(this.props.user)
-  render() {
-    return (
-      <div>
-          <NavBar />
-          <LoginForm />
-          {this.props.showDashboard ? <DashboardContainer /> : true }
-      </div>
-    )
-  }
+
+const LoginPage = ({ store }) => {
+  console.log(store)
+  const stateLength = store.length - 1
+  console.log(stateLength)
+  console.log(store)
+  console.log(store[stateLength].showDashboard)
+  console.log(store[stateLength].fname)
+  return (
+            <div>
+              <NavBar />
+               <LoginForm />
+               {(store[stateLength].showDashboard ? <DashboardContainer store={store[stateLength]} /> : false)}
+              
+           </div>
+
+  )
 }
 
 export default LoginPage
-
