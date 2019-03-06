@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Form, Button, Row, Col } from 'react-bootstrap'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -19,13 +20,13 @@ class LoginForm extends Component {
 } 
     handleChangeFname (event) {
         this.setState({
-            fanme: event.target.value
+            fname: event.target.value
         })
     }
 
     handleChangeLName (event) {
         this.setState({
-            lanme: event.target.value
+            lname: event.target.value
         })
     }
 
