@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import DashboardContainer from '../containers/DashboardContainer'
+import React from 'react'
 
 const DashboardHomeTab = ({ store }) => {
     console.log(store)
