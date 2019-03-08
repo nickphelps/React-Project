@@ -1,22 +1,61 @@
 import React, { Component } from 'react'
+import { Container, Row, Col, Jumbotron, ListGroup } from 'react-bootstrap'
+import DashboardHomeTab from '../components/DashboardHomeTab'
+import LoginFormContainer from './LoginFormContainer';
 
+class DashboardContainer extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         tabState: 1
+      }
+    
+    }
 
-//  class DashboardContainer extends Component {
-     
-//   render() {
-//     return (
-//       <div>
-//         <h1>This is my DashboardContainer</h1>
-//       </div>
-//     )
-//   }
-// }
+    handleDashboardHomeTabClick (event) {
+        event.preventDefault()
+        this.setState({
+            tabState: 1
+        })
+    }
 
-const DashboardContainer = ({ store }) => {
-    console.log(store)
+    handleLoginFormContainerClick (event) {
+        event.preventDefault()
+        this.setState({
+            tabState: 2
+        })
+    }
+
+  render() {
+      console.log(this.props.store, 'my Redux Store')
+      console.log(this.state)
     return (
-        <h1>This is my store...{store.fname} </h1>
+        <Container variant='flush'>
+        <Row>
+        <Col xs={3} style={{border: '1px solid black'}} >
+        <ListGroup defaultActiveKey="#link1">
+            <ListGroup.Item action href={<DashboardHomeTab />}
+                            onClick={(event) => this.handleDashboardHomeTabClick(event)} >
+            Home
+            </ListGroup.Item>
+            <ListGroup.Item action href={<LoginFormContainer />}
+                            onClick={(event) => this.handleLoginFormContainerClick(event)} >
+            Change User Settings
+            </ListGroup.Item>
+    </ListGroup>
+        </Col>
+        <Col style={{border: '5px solid black'}} >
+        <Jumbotron>
+            {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.store} /> : null}
+            {this.state.tabState === 2 ? <LoginFormContainer /> : null}
+        </Jumbotron>
+        </Col>
+        </Row>
+    </Container>
     )
+  }
 }
+
 
 export default DashboardContainer
