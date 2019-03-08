@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import LoginPage from '../components/LoginPage'
 import { connect } from 'react-redux'
+import DashboardContainer from '../containers/DashboardContainer';
 
 
 class App extends Component {
-  // console.log(this.props.userInfo)
+  
   render() {
+    const stateLength = this.props.userInfo.length - 1
+    console.log(this.props.userInfo[stateLength].showDashboard)
     return (
       <div>
-        <LoginPage store={this.props.userInfo} />
+        {this.props.userInfo[stateLength].showDashboard === false ? <LoginPage store={this.props.userInfo} /> : <DashboardContainer /> }
       </div>
     );
   }

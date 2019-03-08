@@ -15,7 +15,7 @@ const LoginPage = ({ store }) => {
             <div>
               <NavBar />
                <LoginForm />
-               {(store[stateLength].showDashboard ? <DashboardContainer store={store[stateLength]} /> : false)}
+               {store[stateLength].showDashboard ? <DashboardContainer store={store[stateLength]} /> : false}
               
            </div>
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Jumbotron, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Jumbotron, ListGroup, Button } from 'react-bootstrap'
 import DashboardHomeTab from '../components/DashboardHomeTab'
 import LoginFormContainer from './LoginFormContainer';
+import { connect } from 'react-redux'
 
 class DashboardContainer extends Component {
     constructor(props) {
@@ -27,8 +28,13 @@ class DashboardContainer extends Component {
         })
     }
 
+    HandleGoHomeClick (event) {
+        event.preventDefault()
+        this.props.handleGoHome(false)
+    } 
+
   render() {
-      console.log(this.props.store, 'my Redux Store')
+      console.log(this.props.userInfo, 'my Redux Store')
       console.log(this.state)
     return (
         <Container variant='flush'>
@@ -47,8 +53,9 @@ class DashboardContainer extends Component {
         </Col>
         <Col style={{border: '5px solid black'}} >
         <Jumbotron>
-            {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.store} /> : null}
+            {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
             {this.state.tabState === 2 ? <LoginFormContainer /> : null}
+            <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
         </Jumbotron>
         </Col>
         </Row>
@@ -57,5 +64,17 @@ class DashboardContainer extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+    //do Something
+    userInfo: state.userInfo
+})
 
-export default DashboardContainer
+const mapDispatchToProps = (dispatch) => ({
+    //function
+    handleGoHome: (handleGoHome) => dispatch({
+                                                type: 'GO_HOME',
+                                                payload: handleGoHome
+    })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer)
