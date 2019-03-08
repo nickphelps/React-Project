@@ -51,6 +51,7 @@ class LoginForm extends Component {
     
   render() {
     return (
+        
       <div>
         <Modal.Dialog>
             <Modal.Header closeButton>
