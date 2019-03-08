@@ -1,10 +1,11 @@
 const initialState = {
     userInfo: [
         {
-            fname: 'Nick',
-            lname: 'Phelps',
-            email: 'testEmail',
-            password: 'testPassword'
+            fname: '',
+            lname: '',
+            email: '',
+            password: '',
+            showDashboard: false
         }
     ]
 }

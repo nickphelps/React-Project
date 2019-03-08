@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Modal, Form, Button, Row, Col, Alert } from 'react-bootstrap'
+import { Modal, Form, Button, Row, Col } from 'react-bootstrap'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class LoginForm extends Component {
     constructor(props) {
       super(props)
 
       this.state = {
-          userInfo: [
-              {
-                  fname: '',
-                  fnameVerified: false,
-                  lname: '',
-                  lnameVerified: false,
-                  email: '',
-                  emailVerified: false,
-                  password: '',
-                  passwordVerifired: false,
-                  formError: ''
-              }
-            ]
-      }//state
-
-      this.handleSubmit = this.handleSubmit.bind(this)
-}
+            fname: '',
+            lname: '',
+            email: '',
+            password: '',
+            showDashboard: false
+      }
+} 
     handleChangeFname (event) {
         this.setState({
             fname: event.target.value
@@ -34,7 +25,6 @@ class LoginForm extends Component {
         this.setState({
             lname: event.target.value
         })
-
     }
 
     handleChangeEmail (event) {
@@ -45,13 +35,16 @@ class LoginForm extends Component {
 
     handleChangePassword (event) {
         this.setState({
-            password: event.target.value
+            password: event.target.value,
+            showDashboard: true
         })
     }
 
     handleSubmit (event) {
         //set actions
         event.preventDefault()
+
+        console.log(this.state, 'My State')
         this.props.handleSubmit(this.state)
 
 
