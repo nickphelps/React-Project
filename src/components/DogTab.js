@@ -28,7 +28,6 @@ handleClick(event) {
       this.setState({
         dogImageURL: localStorage.getItem('DogData')
     })
-    console.log(this.state.dogImageURL)
 
 }
 render() {
@@ -36,8 +35,7 @@ render() {
     return (
       <div>
         <Image src={this.state.dogImageURL} fluid  alt='Dog Image'/>
-        <Button variant="primary" onClick={(event) => this.handleClick(event)}>Primary</Button>
-
+        <Button variant="primary" onClick={(event) => this.handleClick(event)}>Next Dog</Button>
       </div>
     )
   }
