@@ -3,6 +3,7 @@ import { Container, Row, Col, Jumbotron, ListGroup, Button } from 'react-bootstr
 import DashboardHomeTab from '../components/DashboardHomeTab'
 import LoginFormContainer from './LoginFormContainer';
 import { connect } from 'react-redux'
+import DogTab from '../components/DogTab'
 
 class DashboardContainer extends Component {
     constructor(props) {
@@ -33,6 +34,13 @@ class DashboardContainer extends Component {
         this.props.handleGoHome(false)
     } 
 
+    handleDogTabClick (event) {
+        event.preventDefault()
+        this.setState({
+            tabState: 3
+        })
+    }
+
   render() {
       console.log(this.props.userInfo, 'my Redux Store')
       console.log(this.state)
@@ -49,12 +57,18 @@ class DashboardContainer extends Component {
                             onClick={(event) => this.handleLoginFormContainerClick(event)} >
             Change User Settings
             </ListGroup.Item>
+            <ListGroup.Item action href={<DogTab />}
+                            onClick={(event) => this.handleDogTabClick(event)}>
+            Dog Pics!
+            </ListGroup.Item>
+            
     </ListGroup>
         </Col>
         <Col style={{border: '5px solid black'}} >
         <Jumbotron>
             {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
             {this.state.tabState === 2 ? <LoginFormContainer /> : null}
+            {this.state.tabState === 3 ? <DogTab /> : null}
             <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
         </Jumbotron>
         </Col>
