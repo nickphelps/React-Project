@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Jumbotron, ListGroup, Button } from 'react-bootstrap'
+import { Container, Row, Col, Jumbotron, ListGroup, Button, Nav } from 'react-bootstrap'
 import DashboardHomeTab from '../components/DashboardHomeTab'
 import LoginFormContainer from './LoginFormContainer';
 import { connect } from 'react-redux'
 import DogTab from '../components/DogTab'
+import UIContainer from './UIContainer'
+import NavBar from '../containers/NavBarContainer';
 
 class DashboardContainer extends Component {
     constructor(props) {
@@ -41,11 +43,20 @@ class DashboardContainer extends Component {
         })
     }
 
+    handleUITabClick(event) {
+        event.preventDefault()
+        this.setState({
+            tabState: 4
+        })
+    }
+
   render() {
       console.log(this.props.userInfo, 'my Redux Store')
       console.log(this.state)
     return (
-        <Container variant='flush'>
+        <div>
+        <div> <NavBar /> </div>
+        <Container style={{backgroundColor: 'red'}} variant='flush'>
         <Row>
         <Col xs={3} style={{border: '1px solid black'}} >
         <ListGroup defaultActiveKey="#link1">
@@ -61,6 +72,10 @@ class DashboardContainer extends Component {
                             onClick={(event) => this.handleDogTabClick(event)}>
             Dog Pics!
             </ListGroup.Item>
+            <ListGroup.Item action href={<DogTab />}
+                            onClick={(event) => this.handleUITabClick(event)}>
+            Change UI
+            </ListGroup.Item>
             
     </ListGroup>
         </Col>
@@ -69,11 +84,13 @@ class DashboardContainer extends Component {
             {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
             {this.state.tabState === 2 ? <LoginFormContainer /> : null}
             {this.state.tabState === 3 ? <DogTab /> : null}
-            <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
+            {this.state.tabState === 4 ? <UIContainer /> : null}
+            <Button variant='primary' style={{backgroundColor: 'orange'}} onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
         </Jumbotron>
         </Col>
         </Row>
     </Container>
+    </div>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
+import NavBar from '../containers/NavBarContainer'
 import LoginForm from '../containers/LoginFormContainer';
 import DashboardContainer from '../containers/DashboardContainer'
 

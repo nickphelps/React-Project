@@ -12,7 +12,13 @@ class LoginForm extends Component {
             lname: '',
             email: '',
             password: '',
-            showDashboard: false
+            showDashboard: false,
+            UIState: {
+                NavBarColor: '',
+                ButtonColors: '',
+                FontSize:'',
+                DashboardColor: ''
+            }
       }
 } 
     handleChangeFname (event) {
@@ -53,12 +59,12 @@ class LoginForm extends Component {
     return (
         
       <div>
-        <Modal.Dialog>
+        <Modal.Dialog >
             <Modal.Header closeButton>
-                <Modal.Title>Login Form</Modal.Title>
+                <Modal.Title >Login Form</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body style={{backgroundColor: 'red'}}>
                 <Form id="loginForm" onSubmit={(event) => this.handleSubmit(event)}>
                     <Form.Group controlId="fromBasinName">
                         <Row>
@@ -89,7 +95,7 @@ class LoginForm extends Component {
                                       placeholder="Password"
                                       onChange={(event) => this.handleChangePassword(event)} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button style={{backgroundColor: 'purple'}} variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>

@@ -5,14 +5,15 @@ import { connect } from 'react-redux'
 import DashboardContainer from '../containers/DashboardContainer';
 
 
+
 class App extends Component {
   
   render() {
     const stateLength = this.props.userInfo.length - 1
     console.log(this.props.userInfo[stateLength].showDashboard)
     return (
-      <div>
-        {this.props.userInfo[stateLength].showDashboard === false ? <LoginPage store={this.props.userInfo} /> : <DashboardContainer /> }
+      <div style={{backgroundColor: 'red' , height: '100vh'}} >
+        {this.props.userInfo[stateLength].showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
       </div>
     );
   }

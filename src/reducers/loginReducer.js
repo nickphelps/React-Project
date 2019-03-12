@@ -7,7 +7,13 @@ const initialState = {
             lname: '',
             email: '',
             password: '',
-            showDashboard: false
+            showDashboard: false,
+            UIState: {
+                NavBarColor: '',
+                ButtonColors: '',
+                FontSize:'',
+                DashboardColor: ''
+            }
         }
     ]
 }
@@ -35,6 +41,16 @@ const loginReducer = (state = initialState, action) => {
             userInfo: newState
         }
         
+    } else if(action.type === 'CHANGE_NAVBAR_COLOR') {
+        console.log(action, 'CHANGE_NAVBAR_COLOR')
+        const newNavBarColor = state.userInfo.slice()
+        const newNavBarColorLength = state.userInfo.length - 1
+        console.log(newNavBarColor)
+        newNavBarColor[newNavBarColorLength].UIState.NavBarColor = action.payload
+        console.log(newNavBarColor)
+        return {
+            userInfo: newNavBarColor
+        }
     }
     return state
 }
