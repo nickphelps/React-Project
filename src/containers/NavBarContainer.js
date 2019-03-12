@@ -6,15 +6,13 @@ import { connect } from 'react-redux'
 
 class NavBar extends Component {
   render() {
-    // console.log(this.props)
+    console.log(this.props)
     const propLength = this.props.userInfo.length - 1
-    console.log(propLength)
-    console.log(this.props.userInfo[propLength].UIState.NavBarColor)
-
     
+console.log(this.props.userInfo[propLength].UIState.NavBarColor)
     return (
       <div>
-    <Nav className="justify-content-center" style={{backgroundColor: this.props.userInfo[propLength].UIState.NavBarColor}}>
+    <Nav className="justify-content-center" style={this.props.userInfo[propLength].UIState.backgroundColor ? '' : {backgroundColor: this.props.userInfo[propLength].UIState.NavBarColor}}>
         <Nav.Item >
             <h1 style={{fontSize: '40px'}} href="/home">React Project</h1>
         </Nav.Item>

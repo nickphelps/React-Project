@@ -13,11 +13,11 @@ class NavBarColorPicker extends Component {
       }
     }
     handleChangeComplete (color) {
-        console.log(color)
+        // console.log(color)
         this.setState({ 
             backgroundColor: color.hex 
         });
-        console.log(this.state.backgroundColor)
+        // console.log(this.state.backgroundColor)
         this.props.handleSubmit(this.state.backgroundColor)
     }
     
@@ -28,7 +28,7 @@ class NavBarColorPicker extends Component {
         <Card.Body>
             <Card.Title>Change NaavBar Color:</Card.Title>
             <SwatchesPicker color={this.state.backgroundColor}
-                            onChangeComplete={(color) => this.handleChangeComplete(color)}/>
+                            onChange={(color) => this.handleChangeComplete(color)}/>
         </Card.Body>
         </Card>
       </div>

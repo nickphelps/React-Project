@@ -56,7 +56,7 @@ class DashboardContainer extends Component {
     return (
         <div>
         <div> <NavBar /> </div>
-        <Container style={{backgroundColor: 'red'}} variant='flush'>
+        <Container variant='flush'>
         <Row>
         <Col xs={3} style={{border: '1px solid black'}} >
         <ListGroup defaultActiveKey="#link1">
@@ -80,7 +80,7 @@ class DashboardContainer extends Component {
     </ListGroup>
         </Col>
         <Col style={{border: '5px solid black'}} >
-        <Jumbotron>
+        <Jumbotron style={{backgroundColor: '#ffffff'}}>
             {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
             {this.state.tabState === 2 ? <LoginFormContainer /> : null}
             {this.state.tabState === 3 ? <DogTab /> : null}

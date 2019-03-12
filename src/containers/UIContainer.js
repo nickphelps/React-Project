@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
 import { CardGroup, Card } from 'react-bootstrap'
-import NavBarColorPicker from '../components/NavBarColorPickerContainer';
+import NavBarColorPicker from './NavBarColorPickerContainer';
+import BackgroundColorPicker from './BackgroundColorPicker'
 
 class UIContainer extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class UIContainer extends Component {
       <div>
         <CardGroup>
                 <NavBarColorPicker />
-
+                <BackgroundColorPicker />
         </CardGroup>
       </div>
     )

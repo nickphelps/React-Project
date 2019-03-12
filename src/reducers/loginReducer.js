@@ -11,7 +11,7 @@ const initialState = {
             UIState: {
                 NavBarColor: '',
                 ButtonColors: '',
-                FontSize:'',
+                BackgroundColor:'',
                 DashboardColor: ''
             }
         }
@@ -37,7 +37,6 @@ const loginReducer = (state = initialState, action) => {
         
         console.log(newState)
         return {
-            // newState[newStateLength].showDashboard: action.payload,
             userInfo: newState
         }
         
@@ -50,6 +49,14 @@ const loginReducer = (state = initialState, action) => {
         console.log(newNavBarColor)
         return {
             userInfo: newNavBarColor
+        }
+    } else if (action.type = 'CHANGE_BACKGROUND_COLOR') {
+        console.log(action, 'CHANGE_BACKGROUND_COLOR')
+        const newBackgroundColor = state.userInfo.slice()
+        const newBackgroundColorLength = state.userInfo.length - 1
+        newBackgroundColor[newBackgroundColorLength].UIState.BackgroundColor = action.payload
+        return {
+            userInfo: newBackgroundColor
         }
     }
     return state

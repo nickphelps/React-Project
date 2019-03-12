@@ -9,11 +9,14 @@ import DashboardContainer from '../containers/DashboardContainer';
 class App extends Component {
   
   render() {
-    const stateLength = this.props.userInfo.length - 1
-    console.log(this.props.userInfo[stateLength].showDashboard)
+    
+    console.log(this.props.userInfo)
+    const propLength = this.props.userInfo.length - 1
+    // console.log(this.props.userInfo[propLength].showDashboard)
+    
     return (
-      <div style={{backgroundColor: 'red' , height: '100vh'}} >
-        {this.props.userInfo[stateLength].showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
+      <div style={{backgroundColor: this.props.userInfo[propLength].UIState.BackgroundColor , height: '100vh'}} >
+        {this.props.userInfo[propLength].showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
       </div>
     );
   }

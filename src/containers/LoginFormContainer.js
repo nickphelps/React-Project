@@ -64,7 +64,7 @@ class LoginForm extends Component {
                 <Modal.Title >Login Form</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body style={{backgroundColor: 'red'}}>
+            <Modal.Body>
                 <Form id="loginForm" onSubmit={(event) => this.handleSubmit(event)}>
                     <Form.Group controlId="fromBasinName">
                         <Row>
