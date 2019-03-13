@@ -5,14 +5,16 @@ import { connect } from 'react-redux'
 import DashboardContainer from '../containers/DashboardContainer';
 
 
+
 class App extends Component {
   
   render() {
-    const stateLength = this.props.userInfo.length - 1
-    console.log(this.props.userInfo[stateLength].showDashboard)
+    
+    console.log(this.props.userInfo)
+    
     return (
-      <div>
-        {this.props.userInfo[stateLength].showDashboard === false ? <LoginPage store={this.props.userInfo} /> : <DashboardContainer /> }
+      <div style={{backgroundColor: this.props.userInfo.UIState.BackgroundColor , height: '100vh'}} >
+        {this.props.userInfo.showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
       </div>
     );
   }
@@ -20,16 +22,11 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
 
-  userInfo: state.userInfo,
+  userInfo: state,
   
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  //dispatching actions
-  // handleSubmit: (handleSubmit) => dispatch ({
-  //                                             type: 'HANDLE_SUBMIT',
-  //                                             payload: handleSubmit
-  // })
 
 })
 

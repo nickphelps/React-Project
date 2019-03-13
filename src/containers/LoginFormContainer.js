@@ -12,7 +12,8 @@ class LoginForm extends Component {
             lname: '',
             email: '',
             password: '',
-            showDashboard: false
+            showDashboard: false,
+            
       }
 } 
     handleChangeFname (event) {
@@ -53,9 +54,9 @@ class LoginForm extends Component {
     return (
         
       <div>
-        <Modal.Dialog>
+        <Modal.Dialog >
             <Modal.Header closeButton>
-                <Modal.Title>Login Form</Modal.Title>
+                <Modal.Title >Login Form</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -105,7 +106,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    //dispatching actions
     handleSubmit: (handleSubmit) => dispatch ({
                                                 type: 'HANDLE_SUBMIT',
                                                 payload: handleSubmit
