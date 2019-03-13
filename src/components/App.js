@@ -11,12 +11,10 @@ class App extends Component {
   render() {
     
     console.log(this.props.userInfo)
-    const propLength = this.props.userInfo.length - 1
-    // console.log(this.props.userInfo[propLength].showDashboard)
     
     return (
-      <div style={{backgroundColor: this.props.userInfo[propLength].UIState.BackgroundColor , height: '100vh'}} >
-        {this.props.userInfo[propLength].showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
+      <div style={{backgroundColor: this.props.userInfo.UIState.BackgroundColor , height: '100vh'}} >
+        {this.props.userInfo.showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }
       </div>
     );
   }
@@ -24,16 +22,11 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
 
-  userInfo: state.userInfo,
+  userInfo: state,
   
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  //dispatching actions
-  // handleSubmit: (handleSubmit) => dispatch ({
-  //                                             type: 'HANDLE_SUBMIT',
-  //                                             payload: handleSubmit
-  // })
 
 })
 

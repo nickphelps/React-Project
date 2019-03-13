@@ -5,12 +5,11 @@ import DashboardContainer from '../containers/DashboardContainer'
 
 
 const LoginPage = ({ store }) => {
-  const stateLength = store.length - 1
   return (
             <div>
               <NavBar />
                <LoginForm />
-               {store[stateLength].showDashboard ? <DashboardContainer store={store[stateLength]} /> : false}
+               {store.showDashboard ? <DashboardContainer store={store} /> : false}
               
            </div>
 

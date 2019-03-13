@@ -27,15 +27,3 @@ class UIContainer extends Component {
 
 export default UIContainer
 
-// const mapStateToProps = (state) => ({
-//     // userInfo: state.userInfo
-// })
-
-// const mapDispatchToProps = (dispatch) => ({
-//     //dispatching actions
-//     // handleSubmit: (handleSubmit) => dispatch ({
-//     //                                             type: 'HANDLE_SUBMIT',
-//     //                                             payload: handleSubmit
-//     // })
-
-// })

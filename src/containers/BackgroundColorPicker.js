@@ -40,7 +40,6 @@ const mapStateToProps = (state) => ({
   })
   
   const mapDispatchToProps = (dispatch) => ({
-    //dispatching actions
     handleSubmit: (NavBackgroundColor) => dispatch ({
                                                 type: 'CHANGE_BACKGROUND_COLOR',
                                                 payload: NavBackgroundColor

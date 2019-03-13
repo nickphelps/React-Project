@@ -14,7 +14,6 @@ class DashboardContainer extends Component {
       this.state = {
          tabState: 1
       }
-    
     }
 
     handleDashboardHomeTabClick (event) {
@@ -58,7 +57,7 @@ class DashboardContainer extends Component {
         <div> <NavBar /> </div>
         <Container variant='flush'>
         <Row>
-        <Col xs={3} style={{border: '1px solid black'}} >
+        <Col xs={3} >
         <ListGroup defaultActiveKey="#link1">
             <ListGroup.Item action href={<DashboardHomeTab />}
                             onClick={(event) => this.handleDashboardHomeTabClick(event)} >
@@ -79,13 +78,13 @@ class DashboardContainer extends Component {
             
     </ListGroup>
         </Col>
-        <Col style={{border: '5px solid black'}} >
+        <Col>
         <Jumbotron style={{backgroundColor: '#ffffff'}}>
             {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
             {this.state.tabState === 2 ? <LoginFormContainer /> : null}
             {this.state.tabState === 3 ? <DogTab /> : null}
             {this.state.tabState === 4 ? <UIContainer /> : null}
-            <Button variant='primary' style={{backgroundColor: 'orange'}} onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
+            <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
         </Jumbotron>
         </Col>
         </Row>
@@ -96,12 +95,10 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    //do Something
-    userInfo: state.userInfo
+    userInfo: state
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    //function
     handleGoHome: (handleGoHome) => dispatch({
                                                 type: 'GO_HOME',
                                                 payload: handleGoHome

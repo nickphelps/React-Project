@@ -13,12 +13,7 @@ class LoginForm extends Component {
             email: '',
             password: '',
             showDashboard: false,
-            UIState: {
-                NavBarColor: '',
-                ButtonColors: '',
-                FontSize:'',
-                DashboardColor: ''
-            }
+            
       }
 } 
     handleChangeFname (event) {
@@ -95,7 +90,7 @@ class LoginForm extends Component {
                                       placeholder="Password"
                                       onChange={(event) => this.handleChangePassword(event)} />
                     </Form.Group>
-                    <Button style={{backgroundColor: 'purple'}} variant="primary" type="submit">
+                    <Button variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
@@ -111,7 +106,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    //dispatching actions
     handleSubmit: (handleSubmit) => dispatch ({
                                                 type: 'HANDLE_SUBMIT',
                                                 payload: handleSubmit

@@ -9,10 +9,9 @@ class NavBar extends Component {
     console.log(this.props)
     const propLength = this.props.userInfo.length - 1
     
-console.log(this.props.userInfo[propLength].UIState.NavBarColor)
     return (
       <div>
-    <Nav className="justify-content-center" style={this.props.userInfo[propLength].UIState.backgroundColor ? '' : {backgroundColor: this.props.userInfo[propLength].UIState.NavBarColor}}>
+    <Nav className="justify-content-center" style={{backgroundColor: this.props.userInfo.UIState.NavBarColor}}>
         <Nav.Item >
             <h1 style={{fontSize: '40px'}} href="/home">React Project</h1>
         </Nav.Item>
@@ -23,15 +22,11 @@ console.log(this.props.userInfo[propLength].UIState.NavBarColor)
 }
 
 const mapStateToProps = (state) => ({
-  userInfo: state.userInfo
+  userInfo: state
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  //dispatching actions
-  // handleSubmit: (handleSubmit) => dispatch ({
-  //                                             type: 'HANDLE_SUBMIT',
-  //                                             payload: handleSubmit
-  // })
+
 
 })
 
