@@ -54,7 +54,7 @@ class LoginForm extends Component {
     return (
         
       <div>
-        <Modal.Dialog >
+        <Modal.Dialog style={{border: '5px solid #1E90FF'}} >
             <Modal.Header closeButton>
                 <Modal.Title >Login Form</Modal.Title>
             </Modal.Header>
@@ -90,9 +90,11 @@ class LoginForm extends Component {
                                       placeholder="Password"
                                       onChange={(event) => this.handleChangePassword(event)} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <div className='text-center'>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </div>
                 </Form>
             </Modal.Body>
         </Modal.Dialog>

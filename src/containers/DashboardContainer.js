@@ -17,13 +17,15 @@ import {
  import { Icon } from 'react-icons-kit'
  import { dashboard } from 'react-icons-kit/fa/dashboard'
  import { user } from 'react-icons-kit/fa/user'
+ import {pictureO} from 'react-icons-kit/fa/pictureO'
+ import {optinMonster} from 'react-icons-kit/fa/optinMonster'
 
 
 const AppContainer = styled(BaseAppContainer)`
     height: 100vh;`
 
 const Navigation = styled(BaseNavigation)`
-    background: #303641;
+    background: #FFF;
     color: #8d97ad;
     font-size: 1em;
     letter-spacing: 2px;
@@ -32,15 +34,15 @@ const Navigation = styled(BaseNavigation)`
   `;
 
 const IconCnt = styled.div`
-  color: #6a56a5;
+  color: #1E90FF;
   display: flex;
   justify-content: center;
   aligh-items: center;
 `;
 
 const theme = {
-    selectionColor: "#FFF",
-    hoverBgColor: "#181b20"
+    selectionColor: "#0000FF",
+    hoverBgColor: "#D3D3D3"
   }
 
 const Text = styled.div`
@@ -123,7 +125,7 @@ class DashboardContainer extends Component {
                     <div onClick={(event) => this.handleDogTabClick(event)}>
                         <Nav>
                             <IconCnt>
-                                    <Icon icon={user} />
+                                    <Icon icon={optinMonster} />
                             </IconCnt>
                             <Text>Dog Pics!</Text>
                         </Nav>
@@ -131,7 +133,7 @@ class DashboardContainer extends Component {
                     <div onClick={(event) => this.handleUITabClick(event)}>
                         <Nav>
                             <IconCnt>
-                                    <Icon icon={user} />
+                                    <Icon icon={pictureO} />
                             </IconCnt>
                             <Text>Change UI</Text>
                         </Nav>
@@ -140,12 +142,16 @@ class DashboardContainer extends Component {
                 </SideNav>
             </Navigation>
             <Body>
-            <Jumbotron style={{backgroundColor: '#ffffff'}}>
+            <Jumbotron style={{backgroundColor: '#ffffff', position: 'absolute', top: '20%', left: '30%'}}>
+            {/* <Jumbotron style={this.state.tabState === 1 ? {backgroundColor: '#ffffff', position: 'absolute', top: '20%', left: '30%'} : 
+                              this.setState.tabState === 2 : {backgroundColor: '#ffffff', position: 'absolute', top: '15%', left: '50%'} */}
                 {this.state.tabState === 1 ? <DashboardHomeTab store={this.props.userInfo} /> : null}
                 {this.state.tabState === 2 ? <LoginFormContainer /> : null}
                 {this.state.tabState === 3 ? <DogTab /> : null}
                 {this.state.tabState === 4 ? <UIContainer /> : null}
-                <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
+                <div className='text-center'>
+                    <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
+                </div>
             </Jumbotron>
             </Body>
         </AppContainer>

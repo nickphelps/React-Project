@@ -18,8 +18,10 @@ class UIContainer extends Component {
       <div>
         <CardGroup>
                 <NavBarColorPicker />
+                
                 <BackgroundColorPicker />
         </CardGroup>
+        <br></br>
       </div>
     )
   }
