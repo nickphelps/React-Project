@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Image } from 'react-bootstrap'
+import { Button, Image, Card } from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -34,9 +34,16 @@ render() {
 
     return (
       <div>
-        <Image src={this.state.dogImageURL} fluid  alt='Dog Image'/>
-        <Button variant="primary" onClick={(event) => this.handleClick(event)}>Next Dog</Button>
-      </div>
+        <Card stlye={{width: '18rem'}}>
+          <Card.Img src={this.state.dogImageURL} fluid  alt='Dog Image'/>
+          <Card.Body>
+            <div className='text-center'>
+              <Button style={{margin: '15px'}} variant="primary" onClick={(event) => this.handleClick(event)}>Next Dog</Button>
+            </div>
+          </Card.Body>
+        </Card>
+        <br></br>
+      </div> 
     )
   }
 }

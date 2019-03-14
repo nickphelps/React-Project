@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SwatchesPicker } from 'react-color'
+import { CirclePicker } from 'react-color'
 import { connect } from 'react-redux'
 import { Card } from 'react-bootstrap'
 
@@ -24,13 +24,14 @@ class NavBarColorPicker extends Component {
   render() {
     return (
       <div>
-        <Card>
+        <Card style={{padding: '5px'}}>
         <Card.Body>
             <Card.Title>Change NavBar Color:</Card.Title>
-            <SwatchesPicker color={this.state.backgroundColor}
+            <CirclePicker color={this.state.backgroundColor}
                             onChange={(color) => this.handleChangeComplete(color)}/>
         </Card.Body>
         </Card>
+        
       </div>
     )
   }

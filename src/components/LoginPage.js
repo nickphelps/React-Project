@@ -6,8 +6,11 @@ import DashboardContainer from '../containers/DashboardContainer'
 
 const LoginPage = ({ store }) => {
   return (
-            <div>
+            <div style={{ height: '100vh'}}>
               <NavBar />
+              <br></br>
+              <br></br>
+              <br></br>
                <LoginForm />
                {store.showDashboard ? <DashboardContainer store={store} /> : false}
               

@@ -11,13 +11,13 @@ export const Navigation = styled.div`
   flex-shrink: 0;
   background: #fff;
   height: 100vh;
-  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 3px #1E90FF;
 `;
 
 export const ExampleNavigation = styled(Navigation)`
   height: 100%;
   margin-right: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.125);  
+  border: 3px solid #1E90FF;  
 `;
 
 export const Body = styled.div`
