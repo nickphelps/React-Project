@@ -10,8 +10,6 @@ class App extends Component {
   
   render() {
     
-    console.log(this.props.userInfo)
-    
     return (
       <div style={{backgroundColor: this.props.userInfo.UIState.BackgroundColor , height: '100vh'}} >
         {this.props.userInfo.showDashboard === false ? <div> <LoginPage store={this.props.userInfo} /> </div> : <DashboardContainer /> }

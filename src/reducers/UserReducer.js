@@ -1,5 +1,3 @@
-// import { Container } from "react-bootstrap";
-
 const initialState = {
     fname: '',
     lname: '',
@@ -17,7 +15,7 @@ const initialState = {
 const UserReducer = (state = initialState, action) => {
     
     if (action.type === 'HANDLE_SUBMIT') {
-        console.log(action)
+        console.log(action, 'HANDLE_SUBMIT')
 
         return {
             ...state,
@@ -37,20 +35,16 @@ const UserReducer = (state = initialState, action) => {
         
     } else if(action.type === 'CHANGE_NAVBAR_COLOR') {
         console.log(action, 'CHANGE_NAVBAR_COLOR')
-        // const newNavBarColor = state.userInfo.slice()
-        // const newNavBarColorLength = state.userInfo.length - 1
-        // console.log(newNavBarColor)
-        // newNavBarColor[newNavBarColorLength].UIState.NavBarColor = action.payload
-        // console.log(newNavBarColor)
+
         return {
             ...state,
-            // [state.UIState.NavBarColor]: action.payload
             UIState: {
                 ...state.UIState,
                 NavBarColor: action.payload,
                 
             } 
         }
+
     } else if (action.type = 'CHANGE_BACKGROUND_COLOR') {
         console.log(action, 'CHANGE_BACKGROUND_COLOR')
 

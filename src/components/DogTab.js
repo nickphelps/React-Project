@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Image, Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -34,7 +34,7 @@ render() {
 
     return (
       <div>
-        <Card stlye={{width: '18rem'}}>
+        <Card stlye={{width: '18rem', border: '5px solid #1E90FF'}} >
           <Card.Img src={this.state.dogImageURL} fluid  alt='Dog Image'/>
           <Card.Body>
             <div className='text-center'>

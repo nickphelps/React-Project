@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Jumbotron, ListGroup, Button } from 'react-bootstrap'
+import { Jumbotron, Button } from 'react-bootstrap'
 import DashboardHomeTab from '../components/DashboardHomeTab'
 import LoginFormContainer from './LoginFormContainer';
 import { connect } from 'react-redux'
@@ -11,8 +11,7 @@ import styled from 'styled-components'
 import { 
         AppContainer as BaseAppContainer,
         ExampleNavigation as BaseNavigation,
-        Body as Body
-
+        Body as BodyComponent
  } from '../components/StyleContainers'
  import { Icon } from 'react-icons-kit'
  import { dashboard } from 'react-icons-kit/fa/dashboard'
@@ -37,7 +36,7 @@ const IconCnt = styled.div`
   color: #1E90FF;
   display: flex;
   justify-content: center;
-  aligh-items: center;
+  align-items: center;
 `;
 
 const theme = {
@@ -60,7 +59,6 @@ class DashboardContainer extends Component {
 
     handleDashboardHomeTabClick (event) {
         event.preventDefault()
-        console.log('enterd home')
         this.setState({
             tabState: 1
         })
@@ -69,7 +67,6 @@ class DashboardContainer extends Component {
 
     handleLoginFormContainerClick (event) {
         event.preventDefault()
-        console.log('enterd Login')
 
         this.setState({
             tabState: 2
@@ -141,7 +138,7 @@ class DashboardContainer extends Component {
 
                 </SideNav>
             </Navigation>
-            <Body>
+            <BodyComponent>
             <Jumbotron style={{backgroundColor: '#ffffff', position: 'absolute', top: '20%', left: '30%'}}>
             {/* <Jumbotron style={this.state.tabState === 1 ? {backgroundColor: '#ffffff', position: 'absolute', top: '20%', left: '30%'} : 
                               this.setState.tabState === 2 : {backgroundColor: '#ffffff', position: 'absolute', top: '15%', left: '50%'} */}
@@ -153,7 +150,7 @@ class DashboardContainer extends Component {
                     <Button variant='primary' onClick={(event) => this.HandleGoHomeClick(event)}>Go Home</Button>
                 </div>
             </Jumbotron>
-            </Body>
+            </BodyComponent>
         </AppContainer>
     </div>
     )

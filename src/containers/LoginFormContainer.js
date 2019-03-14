@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Form, Button, Row, Col } from 'react-bootstrap'
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class LoginForm extends Component {
     constructor(props) {
